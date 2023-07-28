@@ -1,0 +1,14 @@
+---
+consul_services:
+  name: "be_version_v1"
+  id: "web server"
+  tag: ["be"]
+  checks:
+      - {name: 'Check nginx', id: 'NGINX', HTTP: 'http://127.0.0.1', method: 'GET', interval: '10s', timeout: '1s'}
+
+consul_services:
+  name: "be_version_v2"
+  id: "web server"
+  tag: ["be"]
+  checks:
+      - {name: 'Check nginx', id: 'NGINX', HTTP: 'http://127.0.0.1', method: 'GET', interval: '5s', timeout: '1s'}

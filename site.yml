@@ -1,0 +1,17 @@
+---
+- name: Download consul
+  hosts: consul_instances
+  tasks:
+    - name: Download
+      ansible.builtin.copy:
+        src: consul
+        dest: /usr/bin/consul
+        mode: 777
+
+- name: Assemble Consul cluster
+  hosts: consul_instances
+  any_errors_fatal: true
+  become: true
+  become_user: root
+  roles:
+    - ansible-consul
